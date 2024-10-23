@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CALABAZA GAME</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styls.css">
+    
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 preconnect">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Hanalei&display=swap" rel="stylesheet">
+          <h2 class="texto">CALABAZA GAME</h2>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 Fondogame">
+          <img src="imagenes/Firefly_juguete_de_calabaza_65128-removebg-preview.png" alt="calabazinmoverr" height="150px" class="calabazinmover" id="calabaza">
+          <img src="imagenes/Firefly fondo game 80458.jpg" alt="fondo" height="1000px" width="1000px">
+        </div>
+        <div class="col-4"></div>
+      </div>
+    </div>
+
+    <script>
+      // Seleccionamos la calabaza
+      const calabaza = document.getElementById('calabaza');
+      
+      // Establecemos la posición inicial
+      let posX = 100;
+      let posY = 100;
+      
+      // Escuchamos los eventos de teclas
+      document.addEventListener('keydown', (event) => {
+        const step = 10; // Tamaño del paso
+    
+        // Mover según la tecla presionada
+        switch(event.key) {
+          case 'ArrowUp':
+            posY = Math.max(0, posY - step); // Evita que salga de los límites superiores
+            break;
+          case 'ArrowDown':
+            posY = Math.min(850, posY + step); // Limita para que no salga del fondo
+            break;
+          case 'ArrowLeft':
+            posX = Math.max(0, posX - step); // Evita que salga de los límites a la izquierda
+            break;
+          case 'ArrowRight':
+            posX = Math.min(850, posX + step); // Limita para que no salga del borde derecho
+            break;
+        }
+    
+        // Actualizar la posición de la calabaza
+        calabaza.style.top = posY + 'px';
+        calabaza.style.left = posX + 'px';
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
